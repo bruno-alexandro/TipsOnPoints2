@@ -9,6 +9,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.Configure<OpenAIConfig>(builder.Configuration.GetSection("OpenAi"));
 builder.Services.AddScoped<IOpenAiService, OpenAiService>();
+builder.Services.AddScoped<ICardsService, CardsService>();
 builder.Services.AddControllers();
 
 

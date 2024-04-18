@@ -34,3 +34,4 @@ E:\Projetos\TipsOnPoints2\obj\Debug\net8.0\ref\TipsOnPoints2.dll
 E:\Projetos\TipsOnPoints2\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 E:\Projetos\TipsOnPoints2\bin\Debug\net8.0\Newtonsoft.Json.dll
 E:\Projetos\TipsOnPoints2\bin\Debug\net8.0\OpenAI_API.dll
+E:\Projetos\TipsOnPoints2\obj\Debug\net8.0\TipsOnPoints2.sourcelink.json
