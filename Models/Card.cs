@@ -12,5 +12,7 @@ namespace TipsOnPoints.Models
         public string ?Answer {get; set;}
         [Column("Ca_ThemeId")]
         public int ?ThemeId {get; set;}
+        [Column("Ca_Test")]
+        public int ?Test {get; set;}
     }
 }
