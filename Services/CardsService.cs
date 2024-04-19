@@ -19,9 +19,7 @@ namespace TipsOnPoints.Services
         }
         public async Task<string> GetNewCard()
         {
-
             var result = await _openAiService.GetNewCard(_testCompleteText);
-            
             return result;
         }
     }

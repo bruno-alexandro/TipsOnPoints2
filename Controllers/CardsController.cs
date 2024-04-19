@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using OpenAI_API.Moderation;
+using TipsOnPoints.Models;
+using TipsOnPoints.Repositories;
 using TipsOnPoints.Services;
 
 namespace TipsOnPoints.Controllers
@@ -10,13 +11,14 @@ namespace TipsOnPoints.Controllers
     public class CardsController : ControllerBase
     {
         public readonly ILogger<CardsController> _logger;
-        //public readonly IOpenAiService _openAiService;
         public readonly ICardsService _cardsService;
+        public readonly ICardRepository _cardRepository;
 
-        public CardsController(ILogger<CardsController> logger, ICardsService cardsService)
+        public CardsController(ILogger<CardsController> logger, ICardsService cardsService, ICardRepository cardRepository)
         {
             _logger = logger;
             _cardsService = cardsService;
+            _cardRepository = cardRepository;
         }
 
         [HttpGet]
@@ -32,6 +34,19 @@ namespace TipsOnPoints.Controllers
         public IActionResult Hello()
         {
             return Ok("Hello World");
+        }
+
+        [HttpGet]
+        public IActionResult GetAllCards()
+        {
+            return Ok(_cardRepository.Get());
+        }
+
+        [HttpPost]
+        public IActionResult CreateCard([FromBody] Card card)
+        {
+            _cardRepository.Add(card);
+            return Ok($"Carta criada: {card.Answer}");
         }
     }
 }
