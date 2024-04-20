@@ -259,3 +259,4 @@ C:\Users\Rafael\Desktop\TipsOnPoints2\obj\Debug\net8.0\refint\TipsOnPoints2.dll
 C:\Users\Rafael\Desktop\TipsOnPoints2\obj\Debug\net8.0\TipsOnPoints2.pdb
 C:\Users\Rafael\Desktop\TipsOnPoints2\obj\Debug\net8.0\TipsOnPoints2.genruntimeconfig.cache
 C:\Users\Rafael\Desktop\TipsOnPoints2\obj\Debug\net8.0\ref\TipsOnPoints2.dll
+C:\Users\Rafael\Desktop\TipsOnPoints2\bin\Debug\net8.0\appsettings.json
