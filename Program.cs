@@ -13,6 +13,7 @@ builder.Services.Configure<OpenAIConfig>(builder.Configuration.GetSection("OpenA
 builder.Services.AddScoped<IOpenAiService, OpenAiService>();
 builder.Services.AddScoped<ICardsService, CardsService>();
 builder.Services.AddScoped<ICardRepository, CardRepository>();
+builder.Services.AddScoped<ICardTipRepository, CardTipsRepository>();
 builder.Services.AddControllers();
 //builder.Services.AddDbContextFactory
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
