@@ -12,5 +12,7 @@ namespace TipsOnPoints.Models
         public string ?Answer {get; set;}
         [Column("Ca_ThemeId")]
         public int ?ThemeId {get; set;}
+
+        public ICollection<CardTips> ?CardTips { get; set;}
     }
 }
