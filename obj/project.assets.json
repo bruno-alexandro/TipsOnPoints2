@@ -3092,19 +3092,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rafael\\.nuget\\packages\\": {}
+    "C:\\Users\\Rafael\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projetos\\TipsOnPoints2\\TipsOnPoints2.csproj",
+      "projectUniqueName": "C:\\Users\\Rafael\\Desktop\\TipsOnPoints2\\TipsOnPoints2.csproj",
       "projectName": "TipsOnPoints2",
-      "projectPath": "E:\\Projetos\\TipsOnPoints2\\TipsOnPoints2.csproj",
-      "packagesPath": "C:\\Users\\rafael\\.nuget\\packages\\",
-      "outputPath": "E:\\Projetos\\TipsOnPoints2\\obj\\",
+      "projectPath": "C:\\Users\\Rafael\\Desktop\\TipsOnPoints2\\TipsOnPoints2.csproj",
+      "packagesPath": "C:\\Users\\Rafael\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Rafael\\Desktop\\TipsOnPoints2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\rafael\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Rafael\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
