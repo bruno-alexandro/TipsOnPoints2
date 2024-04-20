@@ -56,7 +56,8 @@ namespace TipsOnPoints.Services
                 var cardTip = new CardTips
                 {
                     Tip = tip,
-                    CardId = card.Id // Agora, o ID do card está preenchido após chamar SaveChanges()
+                    CardId = card.Id,
+                    Card = card
                 };
 
                 _cardTipRepository.Add(cardTip);

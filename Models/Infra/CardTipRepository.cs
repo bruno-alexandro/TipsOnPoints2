@@ -1,10 +1,10 @@
 using TipsOnPoints.Models;
 namespace TipsOnPoints.Repositories
 {
-    public class CardTipsRepository : ICardTipRepository
+    public class CardTipRepository : ICardTipRepository
         {
             private readonly ApplicationDbContext _context;
-            public CardTipsRepository(ApplicationDbContext context)
+            public CardTipRepository(ApplicationDbContext context)
             {
                 _context = context;
             }
