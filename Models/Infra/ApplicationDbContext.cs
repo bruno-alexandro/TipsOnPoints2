@@ -11,8 +11,8 @@ namespace TipsOnPoints.Repositories
         }
         public DbSet<Card> Cards { get; set; }
         public DbSet<CardTips> CardTips { get; set; }
-        //public DbSet<Themes> Themes { get; set; }
-        //public DbSet<ThemeComplements> ThemeComplements { get; set; }
+        public DbSet<Theme> Theme { get; set; }
+        public DbSet<ThemeComplements> ThemeComplement { get; set; }
         
     }
 }

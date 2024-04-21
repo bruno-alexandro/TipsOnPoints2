@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TipsOnPoints2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+099740e171e1eaf8ab1c13a89c2d26e69c9494b5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0222cecd5376c75436b1c73818e733079884ea88")]
 [assembly: System.Reflection.AssemblyProductAttribute("TipsOnPoints2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TipsOnPoints2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

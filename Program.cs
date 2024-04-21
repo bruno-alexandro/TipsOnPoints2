@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using TipsOnPoints.Configuration;
 using TipsOnPoints.Services;
 using TipsOnPoints.Repositories;
+using TipsOnPoints.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,8 @@ builder.Services.AddScoped<IOpenAiService, OpenAiService>();
 builder.Services.AddScoped<ICardsService, CardsService>();
 builder.Services.AddScoped<ICardRepository, CardRepository>();
 builder.Services.AddScoped<ICardTipRepository, CardTipsRepository>();
+builder.Services.AddScoped<IThemeRepository, ThemeRepository>();
+builder.Services.AddScoped<IThemeService, ThemeService>();
 builder.Services.AddControllers();
 //builder.Services.AddDbContextFactory
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
