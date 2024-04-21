@@ -22,5 +22,26 @@ namespace TipsOnPoints.Services
             var result = await _openAiService.GetNewCard(_testCompleteText);
             return result;
         }
+
+        public void SaveCardToDb (ApiResponse dataFromOpenAi)
+        {
+            Card card = new Card
+            {
+                Answer = dataFromOpenAi.Resposta
+            };
+            _cardRepository.Add(card);
+
+            foreach (var tip in dataFromOpenAi.Dicas)
+            {
+                var cardTip = new CardTips
+                {
+                    Tip = tip,
+                    CardId = card.Id // Agora, o ID do card está preenchido após chamar SaveChanges()
+                };
+
+                _cardTipRepository.Add(cardTip);
+            }
+  
+        }
     }
 }
