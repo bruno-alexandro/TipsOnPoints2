@@ -1,0 +1,6 @@
+@TipsOnPoints2_HostAddress = http://localhost:5084
+
+GET {{TipsOnPoints2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
