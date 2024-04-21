@@ -1,5 +1,5 @@
-
 using TipsOnPoints.Models;
+using TipsOnPoints.Repositories;
 
 namespace TipsOnPoints.Repositories
 {

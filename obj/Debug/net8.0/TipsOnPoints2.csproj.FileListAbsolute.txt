@@ -1,0 +1,8 @@
+E:\Projetos\TipsOnPoints2\obj\Debug\net8.0\TipsOnPoints2.csproj.AssemblyReference.cache
+E:\Projetos\TipsOnPoints2\obj\Debug\net8.0\TipsOnPoints2.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projetos\TipsOnPoints2\obj\Debug\net8.0\TipsOnPoints2.AssemblyInfoInputs.cache
+E:\Projetos\TipsOnPoints2\obj\Debug\net8.0\TipsOnPoints2.AssemblyInfo.cs
+E:\Projetos\TipsOnPoints2\obj\Debug\net8.0\TipsOnPoints2.csproj.CoreCompileInputs.cache
+E:\Projetos\TipsOnPoints2\obj\Debug\net8.0\TipsOnPoints2.MvcApplicationPartsAssemblyInfo.cs
+E:\Projetos\TipsOnPoints2\obj\Debug\net8.0\TipsOnPoints2.MvcApplicationPartsAssemblyInfo.cache
+E:\Projetos\TipsOnPoints2\obj\Debug\net8.0\TipsOnPoints2.sourcelink.json
