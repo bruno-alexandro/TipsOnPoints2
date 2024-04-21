@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TipsOnPoints.Repositories;
 
@@ -10,9 +11,11 @@ using TipsOnPoints.Repositories;
 namespace TipsOnPoints2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240421001029_atualizacaoNomesTabelas")]
+    partial class atualizacaoNomesTabelas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
@@ -59,6 +62,52 @@ namespace TipsOnPoints2.Migrations
                     b.ToTable("CardTips");
                 });
 
+            modelBuilder.Entity("TipsOnPoints.Models.Theme", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("Th_Id");
+
+                    b.Property<string>("PluralTheme")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Th_PluralTheme");
+
+                    b.Property<int>("QtyTips")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("Th_QtyTips");
+
+                    b.Property<string>("SingleTheme")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Th_SingleTheme");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Theme");
+                });
+
+            modelBuilder.Entity("TipsOnPoints.Models.ThemeComplements", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("Tc_Id");
+
+                    b.Property<string>("Complements")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Tc_Complements");
+
+                    b.Property<int>("ThemeId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("Tc_ThemeId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ThemeId");
+
+                    b.ToTable("ThemeComplement");
+                });
+
             modelBuilder.Entity("TipsOnPoints.Models.CardTips", b =>
                 {
                     b.HasOne("TipsOnPoints.Models.Card", "Card")
@@ -70,9 +119,25 @@ namespace TipsOnPoints2.Migrations
                     b.Navigation("Card");
                 });
 
+            modelBuilder.Entity("TipsOnPoints.Models.ThemeComplements", b =>
+                {
+                    b.HasOne("TipsOnPoints.Models.Theme", "Theme")
+                        .WithMany("ThemeComplements")
+                        .HasForeignKey("ThemeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Theme");
+                });
+
             modelBuilder.Entity("TipsOnPoints.Models.Card", b =>
                 {
                     b.Navigation("CardTips");
+                });
+
+            modelBuilder.Entity("TipsOnPoints.Models.Theme", b =>
+                {
+                    b.Navigation("ThemeComplements");
                 });
 #pragma warning restore 612, 618
         }
