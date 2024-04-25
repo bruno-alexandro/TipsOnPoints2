@@ -1,4 +1,5 @@
 using TipsOnPoints.Models;
+using TipsOnPoints2.Models.Infra.Interfaces;
 namespace TipsOnPoints.Repositories
 {
     public class CardTipsRepository : ICardTipRepository

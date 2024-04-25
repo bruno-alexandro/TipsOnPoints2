@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using TipsOnPoints.Models;
-using TipsOnPoints.Repositories;
-using TipsOnPoints.Services;
+using TipsOnPoints2.Models.Infra.Interfaces;
+using TipsOnPoints2.Services.Interfaces;
 
 namespace TipsOnPoints.Controllers
 {
