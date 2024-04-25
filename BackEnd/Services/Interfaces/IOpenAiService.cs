@@ -1,4 +1,4 @@
-namespace TipsOnPoints2.Services.Interfaces
+namespace TipsOnPoints2.Services
 {
     public interface IOpenAiService
     {

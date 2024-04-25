@@ -1,6 +1,4 @@
-using TipsOnPoints.Models;
-
-namespace TipsOnPoints2.Models.Infra.Interfaces
+namespace TipsOnPoints2.Models
 {
     public interface IThemeRepository
     {

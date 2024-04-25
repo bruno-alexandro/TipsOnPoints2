@@ -1,8 +1,7 @@
 using Microsoft.Extensions.Options;
-using TipsOnPoints.Configuration;
-using TipsOnPoints2.Services.Interfaces;
+using TipsOnPoints2.Configuration;
 
-namespace TipsOnPoints.Services
+namespace TipsOnPoints2.Services
 {
     public class OpenAiService : IOpenAiService
     {

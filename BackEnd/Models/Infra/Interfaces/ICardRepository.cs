@@ -1,6 +1,6 @@
-using TipsOnPoints.Models;
+using TipsOnPoints2.Models;
 
-namespace TipsOnPoints2.Models.Infra.Interfaces
+namespace TipsOnPoints2.Models
 {
     public interface ICardRepository
     {

@@ -1,10 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using TipsOnPoints.Configuration;
-using TipsOnPoints.Services;
-using TipsOnPoints.Repositories;
-using TipsOnPoints.Models;
-using TipsOnPoints2.Models.Infra.Interfaces;
-using TipsOnPoints2.Services.Interfaces;
+using TipsOnPoints2.Configuration;
+using TipsOnPoints2.Services;
+using TipsOnPoints2.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
