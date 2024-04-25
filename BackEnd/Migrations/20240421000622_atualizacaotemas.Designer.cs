@@ -12,7 +12,7 @@ namespace TipsOnPoints2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240421000622_atualizacaotemas")]
-    partial class atualizacaotemas
+    partial class Atualizacaotemas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

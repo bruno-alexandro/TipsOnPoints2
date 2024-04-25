@@ -5,7 +5,7 @@
 namespace TipsOnPoints2.Migrations
 {
     /// <inheritdoc />
-    public partial class criacaodostemas : Migration
+    public partial class Criacaodostemas : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
