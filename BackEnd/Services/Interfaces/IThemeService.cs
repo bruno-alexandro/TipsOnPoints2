@@ -1,5 +1,5 @@
 using TipsOnPoints.Models;
-namespace TipsOnPoints.Services
+namespace TipsOnPoints2.Services.Interfaces
 {
     public interface IThemeService
     {

@@ -1,7 +1,8 @@
 using Microsoft.Extensions.Options;
 using TipsOnPoints.Configuration;
 using TipsOnPoints.Models;
-using TipsOnPoints.Repositories;
+using TipsOnPoints2.Models.Infra.Interfaces;
+using TipsOnPoints2.Services.Interfaces;
 
 namespace TipsOnPoints.Services
 {

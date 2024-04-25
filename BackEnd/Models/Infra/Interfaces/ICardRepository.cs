@@ -1,8 +1,9 @@
 using TipsOnPoints.Models;
 
-namespace TipsOnPoints.Repositories
+namespace TipsOnPoints2.Models.Infra.Interfaces
 {
-    public interface ICardRepository {
+    public interface ICardRepository
+    {
         void Add(Card card);
         List<Card> Get();
     }

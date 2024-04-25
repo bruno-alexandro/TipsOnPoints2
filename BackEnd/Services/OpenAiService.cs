@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Options;
 using TipsOnPoints.Configuration;
+using TipsOnPoints2.Services.Interfaces;
 
 namespace TipsOnPoints.Services
 {
