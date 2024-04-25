@@ -1,8 +1,6 @@
-using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
-using TipsOnPoints.Models;
-using TipsOnPoints2.Models.Infra.Interfaces;
-using TipsOnPoints2.Services.Interfaces;
+using TipsOnPoints2.Models;
+using TipsOnPoints2.Services;
 
 namespace TipsOnPoints.Controllers
 {

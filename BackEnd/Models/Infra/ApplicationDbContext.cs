@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TipsOnPoints.Models;
-
-namespace TipsOnPoints.Repositories
+namespace TipsOnPoints2.Models
 {
     public class ApplicationDbContext : DbContext
     {
