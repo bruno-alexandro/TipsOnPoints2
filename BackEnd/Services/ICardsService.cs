@@ -3,7 +3,7 @@ namespace TipsOnPoints.Services
 {
     public interface ICardsService
     {
-        Task<string> GetNewCard(); 
+        Task<string> GetNewCard(Theme theme); 
         public void SaveCardToDb (ApiResponse dataFromOpenAi);
     }
 }

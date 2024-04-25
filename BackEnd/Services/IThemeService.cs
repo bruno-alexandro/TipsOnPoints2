@@ -3,6 +3,6 @@ namespace TipsOnPoints.Services
 {
     public interface IThemeService
     {
-        Theme GetSortedTheme();
+        
     }
 }
