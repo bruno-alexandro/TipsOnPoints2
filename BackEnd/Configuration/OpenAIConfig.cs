@@ -1,4 +1,4 @@
-namespace TipsOnPoints.Configuration
+namespace TipsOnPoints2.Configuration
 {
     public class OpenAIConfig 
     {

@@ -1,9 +1,5 @@
-
-using TipsOnPoints.Models;
-using TipsOnPoints2.Models.Infra.Interfaces;
-using TipsOnPoints2.Services.Interfaces;
-
-namespace TipsOnPoints.Services
+using TipsOnPoints2.Models;
+namespace TipsOnPoints2.Services
 {
     public class CardsService : ICardsService
     {
