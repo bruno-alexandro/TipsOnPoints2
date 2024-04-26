@@ -1,4 +1,5 @@
 
+using Microsoft.EntityFrameworkCore;
 using TipsOnPoints.Models;
 using TipsOnPoints2.Models.Infra.Interfaces;
 
@@ -18,7 +19,7 @@ namespace TipsOnPoints.Repositories
 
         public List<Theme> Get()
         {
-            return _context.Theme.ToList();
+            return _context.Theme.Include(complements => complements.ThemeComplements).ToList();
         }
 
     }
