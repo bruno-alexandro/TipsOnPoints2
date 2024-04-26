@@ -25,13 +25,20 @@ namespace TipsOnPoints2.Services
 
         public string GetFullPromptText(Theme theme)
         {
-            string themeComplements = theme.ThemeComplements?.Count == 0 || theme.ThemeComplements == null ? " quaisquer " : string.Join(", ", theme.ThemeComplements);
+            string themeComplements = theme.ThemeComplements?.Count == 0 || theme.ThemeComplements == null ? " quaisquer " : string.Join(", ", theme.ThemeComplements.Select(tc => tc.Complements));
 
-            string fullPrompText = $"Você é um oraculo que sabe tudo sobre {theme.PluralTheme} que podem ser {themeComplements} "+
-                                   $"que são famosos no mundo. Sorteie um {theme.SingleTheme} qualquer "+
-                                   $"e de {theme.QtyTips} dicas para que uma pessoa consiga adivinhar muito facilmente baseado nas suas dicas sem que você mensione ele. "+
-                                   $"Me retorne um JSON com SEMPRE com as dicas e a resposta, somente o JSON e nada mais, no JSON as dicas virão como dicas: [], resposta: ";
-            
+            //string fullPrompText = $"Você é um oraculo que sabe tudo sobre o tema: <{theme.PluralTheme}> que possui o(s) subtema(s):<{themeComplements}>. "+
+            //                       $"Escolha um subtema aleatorio do tema mensionado, baseado nesta escolha, pegue um(a) do(a) subtema que seja famoso no mundo. "+
+            //                       $"Me retorne {theme.QtyTips} dicas sobre este(a). Cada dica deve ter no mínimo 10 palavras e no maximo 30. Uma pessoa leiga sobre o assunto deve ser capaz de acertar a resposta. . "+
+            //                       $"Me retorne um JSON com SEMPRE com as dicas e a resposta, somente o JSON e nada mais, no JSON as dicas virão como dicas: [], resposta: , escolha_do_subtema: ";
+
+            string fullPrompText = $"Você é um oráculo com amplo conhecimento sobre o tema {theme.PluralTheme}, que abrange os seguintes subtemas: {themeComplements}. " +
+                      $"Escolha aleatoriamente um desses subtemas para prosseguir. Com base nessa escolha, selecione uma entidade do subtema que seja amplamente reconhecido. " +
+                      $"A seguir, gostaria de receber {theme.QtyTips} dicas sobre a entidade selecionada especificamente. " +
+                      $"Cada dica deve ser formulada com entre 10 e 30 palavras, com o objetivo de ser compreensível para qualquer pessoa Brasileira, mesmo aquelas sem conhecimento prévio sobre a entidade. (as dicas não podem ser generalistas, ou seja, seja quase impossivel relacionar as dicas a mais de 2 entidades diferentes), (as dicas não podem ter relação umas com as outras), (nas dicas tambem pode conter nomes, caracteristicas, charadas, quebras-cabeças, expressões, ditados populares). " +
+                      $"Por fim, espero que você me retorne um JSON estruturado contendo as dicas e a resposta. " +
+                      $"O formato desse JSON deve ser o seguinte: {{\"dicas\": [...], \"resposta\": \"\", \"escolha_do_subtema\": \"\"}}.";
+
             return fullPrompText;
         }
         public async Task<string> GetNewCard()

@@ -1,3 +1,7 @@
+
+using Microsoft.EntityFrameworkCore;
+using TipsOnPoints.Models;
+
 namespace TipsOnPoints2.Models
 {
     public class ThemeRepository : IThemeRepository
@@ -14,7 +18,7 @@ namespace TipsOnPoints2.Models
 
         public List<Theme> Get()
         {
-            return _context.Theme.ToList();
+            return _context.Theme.Include(complements => complements.ThemeComplements).ToList();
         }
 
     }
