@@ -12,6 +12,7 @@
 appsettings.json
 /obj
 TipsOnPointsDB.db
+TipsOnPointsDB.db
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
