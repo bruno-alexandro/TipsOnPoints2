@@ -1,6 +1,4 @@
-
 using Microsoft.EntityFrameworkCore;
-using TipsOnPoints.Models;
 
 namespace TipsOnPoints2.Models
 {
