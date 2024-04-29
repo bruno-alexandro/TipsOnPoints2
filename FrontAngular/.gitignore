@@ -363,8 +363,3 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /BackEnd/TipsOnPointsDB.db
-/obj/Debug/net8.0/TipsOnPoints2.AssemblyInfo.cs
-/obj/Debug/net8.0/TipsOnPoints2.AssemblyInfoInputs.cache
-/obj/Debug/net8.0/TipsOnPoints2.assets.cache
-/obj/Debug/net8.0/TipsOnPoints2.csproj.AssemblyReference.cache
-/obj/Debug/net8.0/TipsOnPoints2.GeneratedMSBuildEditorConfig.editorconfig
