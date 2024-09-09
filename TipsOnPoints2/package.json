@@ -2,12 +2,8 @@
   "name": "tips-on-points2",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:TipsOnPoints2": "node dist/tips-on-points2/server/server.mjs"
+    "start": "http-server ./dist/tips-on-points2 -p 4200",
+    "build": "ng build --configuration production"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +18,7 @@
     "@angular/router": "^18.2.0",
     "@angular/ssr": "^18.2.3",
     "express": "^4.18.2",
+    "http-server": "^14.1.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"

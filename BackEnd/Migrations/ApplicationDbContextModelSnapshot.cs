@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TipsOnPoints2.Models;
 
 #nullable disable
@@ -15,21 +16,27 @@ namespace TipsOnPoints2.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "8.0.4")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("TipsOnPoints.Models.Card", b =>
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("TipsOnPoints2.Models.Card", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("integer")
                         .HasColumnName("Ca_Id");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
                     b.Property<string>("Answer")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("text")
                         .HasColumnName("Ca_Answer");
 
                     b.Property<int?>("ThemeId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("integer")
                         .HasColumnName("Ca_ThemeId");
 
                     b.HasKey("Id");
@@ -37,19 +44,21 @@ namespace TipsOnPoints2.Migrations
                     b.ToTable("Cards");
                 });
 
-            modelBuilder.Entity("TipsOnPoints.Models.CardTips", b =>
+            modelBuilder.Entity("TipsOnPoints2.Models.CardTips", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("integer")
                         .HasColumnName("Ct_Id");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
                     b.Property<int>("CardId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("integer")
                         .HasColumnName("Ct_CardId");
 
                     b.Property<string>("Tip")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("text")
                         .HasColumnName("Ct_Tip");
 
                     b.HasKey("Id");
@@ -59,23 +68,25 @@ namespace TipsOnPoints2.Migrations
                     b.ToTable("CardTips");
                 });
 
-            modelBuilder.Entity("TipsOnPoints.Models.Theme", b =>
+            modelBuilder.Entity("TipsOnPoints2.Models.Theme", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("integer")
                         .HasColumnName("Th_Id");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
                     b.Property<string>("PluralTheme")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("text")
                         .HasColumnName("Th_PluralTheme");
 
                     b.Property<int>("QtyTips")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("integer")
                         .HasColumnName("Th_QtyTips");
 
                     b.Property<string>("SingleTheme")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("text")
                         .HasColumnName("Th_SingleTheme");
 
                     b.HasKey("Id");
@@ -83,19 +94,21 @@ namespace TipsOnPoints2.Migrations
                     b.ToTable("Theme");
                 });
 
-            modelBuilder.Entity("TipsOnPoints.Models.ThemeComplements", b =>
+            modelBuilder.Entity("TipsOnPoints2.Models.ThemeComplements", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("integer")
                         .HasColumnName("Tc_Id");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
                     b.Property<string>("Complements")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("text")
                         .HasColumnName("Tc_Complements");
 
                     b.Property<int>("ThemeId")
-                        .HasColumnType("INTEGER")
+                        .HasColumnType("integer")
                         .HasColumnName("Tc_ThemeId");
 
                     b.HasKey("Id");
@@ -105,9 +118,9 @@ namespace TipsOnPoints2.Migrations
                     b.ToTable("ThemeComplement");
                 });
 
-            modelBuilder.Entity("TipsOnPoints.Models.CardTips", b =>
+            modelBuilder.Entity("TipsOnPoints2.Models.CardTips", b =>
                 {
-                    b.HasOne("TipsOnPoints.Models.Card", "Card")
+                    b.HasOne("TipsOnPoints2.Models.Card", "Card")
                         .WithMany("CardTips")
                         .HasForeignKey("CardId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -116,9 +129,9 @@ namespace TipsOnPoints2.Migrations
                     b.Navigation("Card");
                 });
 
-            modelBuilder.Entity("TipsOnPoints.Models.ThemeComplements", b =>
+            modelBuilder.Entity("TipsOnPoints2.Models.ThemeComplements", b =>
                 {
-                    b.HasOne("TipsOnPoints.Models.Theme", "Theme")
+                    b.HasOne("TipsOnPoints2.Models.Theme", "Theme")
                         .WithMany("ThemeComplements")
                         .HasForeignKey("ThemeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -127,12 +140,12 @@ namespace TipsOnPoints2.Migrations
                     b.Navigation("Theme");
                 });
 
-            modelBuilder.Entity("TipsOnPoints.Models.Card", b =>
+            modelBuilder.Entity("TipsOnPoints2.Models.Card", b =>
                 {
                     b.Navigation("CardTips");
                 });
 
-            modelBuilder.Entity("TipsOnPoints.Models.Theme", b =>
+            modelBuilder.Entity("TipsOnPoints2.Models.Theme", b =>
                 {
                     b.Navigation("ThemeComplements");
                 });

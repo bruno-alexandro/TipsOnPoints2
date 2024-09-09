@@ -18,7 +18,7 @@ builder.Services.AddScoped<IThemeRepository, ThemeRepository>();
 builder.Services.AddScoped<IThemeService, ThemeService>();
 builder.Services.AddControllers();
 //builder.Services.AddDbContextFactory
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
