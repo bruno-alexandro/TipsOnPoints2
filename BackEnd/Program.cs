@@ -19,6 +19,15 @@ builder.Services.AddScoped<IThemeService, ThemeService>();
 builder.Services.AddControllers();
 //builder.Services.AddDbContextFactory
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddCors(
+    options =>
+    {
+        options.AddPolicy("AllowAllOrigins",
+            policy => policy.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod());
+    }
+);
 
 var app = builder.Build();
 
@@ -39,4 +48,5 @@ using (var scope = app.Services.CreateScope())
 app.UseHttpsRedirection();
 app.UseRouting();
 app.MapControllers();
+app.UseCors("AllowAllOrigins");
 app.Run();

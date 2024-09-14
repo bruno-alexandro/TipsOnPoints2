@@ -9,18 +9,22 @@ services:
       - postgres-data:/var/lib/postgresql/data  # Persiste os dados localmente
     ports:
       - "5432:5432"  # Mapeia a porta 5432 do container para sua máquina
+    # networks:
+    #   - app-network
 
-  # server:
-  #   build:
-  #     context: ./backend  # Caminho para a pasta com o Dockerfile do backend
-  #     dockerfile: Dockerfile  # Nome do Dockerfile se não for o padrão
-  #   ports:
-  #     - "8080:8080"
-  #   environment:
-  #     - ASPNETCORE_ENVIRONMENT=Development
-  #   depends_on:
-  #     - postgres
-  #   tty: true
+  server:
+    build:
+      context: ./backend  # Caminho para a pasta com o Dockerfile do backend
+      dockerfile: Dockerfile  # Nome do Dockerfile se não for o padrão
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - postgres
+    tty: true
+    # networks:
+    #   - app-network
 
   # nginx:
   #   build:
@@ -32,6 +36,10 @@ services:
   #     - ./nginx.conf:/etc/nginx/nginx.conf
   #   depends_on:
   #     - server
+
+# networks:
+#   app-network:
+#     driver: bridge
 
 volumes:
   postgres-data:
