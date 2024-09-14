@@ -8,6 +8,7 @@
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
 services:
+  
   server:
     build:
       context: .
@@ -16,30 +17,12 @@ services:
       - 8080:8080
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-    depends_on:
-      - postgres
-    networks:
-      - app-network
+    tty: true
+    #   - ASPNETCORE_URLS=https://+:81;http://+:80
+      # - ASPNETCORE_HTTPS_PORT=8081
+      
 
-  postgres:
-    image: postgres:14  # Versão 14 do Postgres (você pode trocar pela versão que preferir)
-    environment:
-      POSTGRES_USER: admin      # Define o usuário do banco
-      POSTGRES_PASSWORD: admin  # Define a senha do usuário
-      POSTGRES_DB: tipsonpoints    # Nome do banco de dados a ser criado
-    volumes:
-      - postgres-data:/var/lib/postgresql/data  # Persiste os dados localmente
-    ports:
-      - "5432:5432"  # Mapeia a porta 5432 do container para sua máquina
-    networks:
-      - app-network
-
-volumes:
-  postgres-data:
-
-networks:
-  app-network:
-    driver: bridge
+      
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to

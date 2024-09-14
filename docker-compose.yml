@@ -1,21 +1,4 @@
 services:
-  backend:
-    build:
-      context: ./BackEnd
-    ports:
-      - "8080:8080"
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      # - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=mydatabase;Username=myuser;Password=mypassword
-    depends_on:
-      - postgres
-
-  frontend:
-    build:
-      context: ./TipsOnPoints2
-    ports:
-      - "4200:4200"
-
   postgres:
     image: postgres:14  # Versão 14 do Postgres (você pode trocar pela versão que preferir)
     environment:
@@ -23,9 +6,32 @@ services:
       POSTGRES_PASSWORD: admin  # Define a senha do usuário
       POSTGRES_DB: tipsonpoints    # Nome do banco de dados a ser criado
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data  # Persiste os dados localmente
+      - postgres-data:/var/lib/postgresql/data  # Persiste os dados localmente
     ports:
       - "5432:5432"  # Mapeia a porta 5432 do container para sua máquina
 
+  # server:
+  #   build:
+  #     context: ./backend  # Caminho para a pasta com o Dockerfile do backend
+  #     dockerfile: Dockerfile  # Nome do Dockerfile se não for o padrão
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Development
+  #   depends_on:
+  #     - postgres
+  #   tty: true
+
+  # nginx:
+  #   build:
+  #     context: ./TipsOnPoints2  # Caminho para a pasta com o Dockerfile do Angular
+  #     dockerfile: Dockerfile  # Nome do Dockerfile se não for o padrão
+  #   ports:
+  #     - "4200:80"  # Mapeia a porta 80 do container para 4200 na sua máquina
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf
+  #   depends_on:
+  #     - server
+
 volumes:
-  pgdata:
+  postgres-data:

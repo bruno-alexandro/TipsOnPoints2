@@ -8,14 +8,12 @@
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
 services:
-  angular-app:
-    build:
-      context: .
+  nginx:
+    build: .
     ports:
       - "4200:4200"
-    environment:
-      NODE_ENV: production
-    command: http-server -p 4200
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
 
     # command: npm start
 

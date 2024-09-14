@@ -1,41 +1,53 @@
-# syntax=docker/dockerfile:1
+# # Usar uma imagem Node para fazer o build da aplicação
+# FROM node:20.17.0-alpine AS build
 
-# Comments are provided throughout this file to help you get started.
-# If you need more help, visit the Dockerfile reference guide at
-# https://docs.docker.com/go/dockerfile-reference/
+# # Definir o diretório de trabalho dentro do contêiner
+# WORKDIR /app
 
-# Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
+# # Copiar os arquivos package.json e package-lock.json
+# COPY package*.json ./
 
-ARG NODE_VERSION=20.17.0
+# # Instalar dependências
+# RUN npm ci --omit=dev
 
-FROM node:${NODE_VERSION}-alpine
+# # Copiar todo o código para o diretório de trabalho
+# COPY . .
 
-# Use production node environment by default.
-ENV NODE_ENV production
+# # Instalar o Angular CLI globalmente
+# # RUN npm install -g @angular/cli
+# # Rodar o build da aplicação
+# RUN npm run build 
+# #--configuration=production
 
+# # Usar uma imagem Nginx para servir a aplicação
+# FROM nginx:alpine
 
+# # Copiar o build gerado do Angular para a pasta de arquivos estáticos do Nginx
+# COPY --from=build /app/dist/tips-on-points2 /usr/share/nginx/html
+
+# # Expor a porta 80 do Nginx
+# EXPOSE 4200
+
+# # Iniciar o servidor Nginx
+# CMD ["nginx", "-g", "daemon off;"]
+
+# Define node version
+FROM node:20.17.0-alpine as build
+# Define container directory
 WORKDIR /usr/src/app
-
-# Download dependencies as a separate step to take advantage of Docker's caching.
-# Leverage a cache mount to /root/.npm to speed up subsequent builds.
-# Leverage a bind mounts to package.json and package-lock.json to avoid having to copy them into
-# into this layer.
-
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=cache,target=/root/.npm \
-    npm ci --omit=dev
-
-RUN npm i -g @angular/cli
-
-# Run the application as a non-root user.
-USER node
-
-# Copy the rest of the source files into the image.
+# Copy package*.json for npm install
+COPY package*.json ./
+# Run npm clean install, including dev dependencies for @angular-devkit
+RUN npm ci
+# Run npm install @angular/cli
+RUN npm install -g @angular/cli
+# Copy all files
 COPY . .
+# Run ng build through npm to create dist folder
+RUN npm run build --prod
+# Define nginx for front-end server
+FROM nginx:1.15.8-alpine
+# Copy dist from ng build to nginx html folder
+COPY --from=build /usr/src/app/dist/tips-on-points2/browser /usr/share/nginx/html
 
-# Expose the port that the application listens on.
-EXPOSE 4200
-
-# Run the application.
-# CMD npm start
+#COPY nginx.conf /etc/nginx/nginx.conf
