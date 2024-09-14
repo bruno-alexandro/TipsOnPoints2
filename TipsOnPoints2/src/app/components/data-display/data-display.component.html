@@ -1,6 +1,43 @@
-<ul>
-    <p>componente</p>
-    <!-- <li *ngFor="let dado of dados">
-      {{ dado.nome }}
-    </li> -->
+<!-- <div>
+  <h1>Resposta: {{ dados?.resposta }}</h1>
+  <h2>Escolha do Subtema: {{ dados?.escolha_do_subtema }}</h2>
+  <ul>
+    
+    <li>{{ dica }}</li>
+          
   </ul>
+</div> -->
+
+
+<!-- <div class="container">
+  <h2 class="subtitle">{{ dados?.escolha_do_subtema }}</h2>
+  <h2 class="title">{{ dados?.resposta }}</h2>
+  <ul class="dicas-list">
+    @for (dica of dados?.dicas; track dica){
+    <li><span>{{$index+1}}</span> {{ dica }}</li>
+    }
+  </ul>
+  <button class="btn" (click)="getNovaCarta()">Nova Carta</button>
+</div> -->
+
+<div class="game-container">
+
+  <main>
+    <div class="response-section">
+      <p class="response-text"><span>{{ dados?.resposta }}</span></p>
+    </div>
+    <div class="tips-container">
+      <ul class="tips-list">
+        @for (dica of dados?.dicas; track dica){
+        <li>
+          <span class="tip-number">{{$index+1}}</span>
+          <span class="tip-text">{{ dica }}</span>
+        </li>
+         }
+      </ul>
+    </div>
+
+
+    <button class="new-guess-btn" (click)="getNovaCarta()">Nova</button>
+  </main>
+</div>
