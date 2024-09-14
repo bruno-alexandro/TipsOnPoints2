@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dotnet",
+			"task": "build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: build"
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"path": "TipsOnPoints2",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build - TipsOnPoints2",
+			"detail": "ng build"
+		},
+		{
+			"type": "dotnet",
+			"task": "build C:\\Users\\bruno\\OneDrive\\Documentos\\GIT\\TipsOnPoints2\\TipsOnPoints2\\BackEnd\\TipsOnPoints2.csproj",
+			"file": "C:\\Users\\bruno\\OneDrive\\Documentos\\GIT\\TipsOnPoints2\\TipsOnPoints2\\BackEnd\\TipsOnPoints2.csproj",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "dotnet: build C:\\Users\\bruno\\OneDrive\\Documentos\\GIT\\TipsOnPoints2\\TipsOnPoints2\\BackEnd\\TipsOnPoints2.csproj"
+		}
+	]
+}
