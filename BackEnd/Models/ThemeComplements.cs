@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace TipsOnPoints2.Models
 {
-    public class ThemeComplements (){
+    public class ThemeComplements 
+    {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("Tc_Id")]
@@ -13,6 +15,7 @@ namespace TipsOnPoints2.Models
         public int ThemeId { get; set;}
         [Column("Tc_Complements")]
         public string ?Complements {get; set;}
-        public Theme ?Theme { get; set; }
+        [JsonIgnore]
+        public Theme? Theme { get; set; }
     }
 }

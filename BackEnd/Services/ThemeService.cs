@@ -15,5 +15,19 @@ namespace TipsOnPoints2.Services
             int randomIndex = new Random().Next(allThemes.Count);
             return allThemes[randomIndex];
         }
+
+        public Theme CreateTheme(Theme theme)
+        {
+            if (theme.ThemeComplements != null)
+            {
+                foreach (var complement in theme.ThemeComplements)
+                {
+                    complement.ThemeId = theme.Id;
+                }
+            }
+
+            _themeRepository.Add(theme);
+            return theme;
+        }
     }
 }
