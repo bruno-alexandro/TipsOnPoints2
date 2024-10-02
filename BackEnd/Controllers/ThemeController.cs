@@ -21,13 +21,6 @@ namespace TipsOnPoints.Controllers
         }
 
         [HttpGet]
-        [Route("Hello")]
-        public IActionResult Hello()
-        {
-            return Ok("Hello World");
-        }
-
-        [HttpGet]
         public IActionResult GetAllThemes()
         {
             return Ok(_themeRepository.Get());
@@ -36,7 +29,7 @@ namespace TipsOnPoints.Controllers
         [HttpPost]
         public IActionResult CreateTheme([FromBody] Theme theme)
         {
-            _themeRepository.Add(theme);
+            _themesService.CreateTheme(theme);
             return Ok(theme);
         }
     }

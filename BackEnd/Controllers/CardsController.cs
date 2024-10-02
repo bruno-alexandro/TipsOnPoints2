@@ -35,23 +35,10 @@ namespace TipsOnPoints.Controllers
         }
 
         [HttpGet]
-        [Route("Hello")]
-        public IActionResult Hello()
-        {
-            return Ok("Hello World");
-        }
-
-        [HttpGet]
         public IActionResult GetAllCards()
         {
             return Ok(_cardRepository.Get());
         }
 
-        [HttpPost]
-        public IActionResult CreateCard([FromBody] Card card)
-        {
-            _cardRepository.Add(card);
-            return Ok($"Carta criada: {card.Answer}");
-        }
     }
 }
