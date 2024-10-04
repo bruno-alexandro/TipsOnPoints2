@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DadosService } from './data.service';
+//mport { DadosService } from 'data.service';
 
 describe('DataService', () => {
   // let service: DadosService;

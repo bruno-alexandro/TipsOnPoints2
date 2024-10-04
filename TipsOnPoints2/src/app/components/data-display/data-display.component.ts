@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DadosService, Dado } from '../../services/data.service';
+import { DadosService, Dado } from '../../services/card/data.service';
 
 @Component({
   selector: 'app-data-display',
