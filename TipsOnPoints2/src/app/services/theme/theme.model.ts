@@ -1,13 +1,19 @@
+import { ThemeComplement } from "./themecomplement.model"; 
+
 export interface Theme {
-    // Define the properties of the Theme object
-    name: string;
-    description: string;
-    // Add other properties as needed
+    id: number;
+    pluralTheme: string;
+    singleTheme: string;
+    qtyTips: number;
+    themeComplements: ThemeComplement[];
 }
 
 export class Theme {
     constructor(
-        public name: string,
-        public description: string,
+        public id: number,
+        public pluralTheme: string,
+        public singleTheme: string,
+        public qtyTips: number,
+        public themeComplements: ThemeComplement[] = []
     ) {}
 }
